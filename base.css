@@ -1,0 +1,28 @@
+div.question {
+	margin: 0 0 1.5em 0;
+	font-size: 14px;
+}
+
+input[type=button] {
+	background-color: #bfbfbf;
+	font-size: 1em;
+	height: 50px;
+	width: 100%;
+}
+
+div.question div:first-child {
+	font-weight: bold;
+}
+
+@media screen and (min-width: 480px) {
+		div.question {
+			font-size: 18px;
+		}
+		input[type=button] {
+			font-size: 1em;
+			width: 200px;
+		}
+}
+
+@media screen and (min-width: 768px) {
+}
