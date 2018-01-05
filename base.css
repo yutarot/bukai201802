@@ -70,13 +70,16 @@ input[type=button] {
 }
 
 .resultPoints td span {
+	margin-left: 2px;
+}
+
+.pt {
 	color: rgb(255, 0, 54);
 }
 
-.resultPoints td span:after {
+.pt:after {
 	content: 'pt';
 	color: #000;
-	margin-left: 2px;
 }
 
 .warning {

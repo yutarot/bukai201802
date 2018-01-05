@@ -245,12 +245,27 @@ $(function() {
 	};
 
 	var setPoints = function(data) {
+		var strengthCamera, strengthThreeDee, strengthFantasy, strengthDictionary, strengthRadio, strengthSound;
 		$('#camera').text(data[0]);
 		$('#threeDee').text(data[1]);
 		$('#fantasy').text(data[2]);
 		$('#dictionary').text(data[3]);
 		$('#radio').text(data[4]);
 		$('#sound').text(data[5]);
+
+		strengthCamera = data[0] > 25 ? '◎' : data[0] > 14 ? '◯' : '△';
+		strengthThreeDee = data[1] > 25 ? '◎' : data[1] > 14 ? '◯' : '△';
+		strengthFantasy = data[2] > 25 ? '◎' : data[2] > 14 ? '◯' : '△';
+		strengthDictionary = data[3] > 25 ? '◎' : data[3] > 14 ? '◯' : '△';
+		strengthRadio = data[4] > 25 ? '◎' : data[4] > 14 ? '◯' : '△';
+		strengthSound = data[5] > 25 ? '◎' : data[5] > 14 ? '◯' : '△';
+
+		$('#strengthCamera').text(strengthCamera);
+		$('#strengthThreeDee').text(strengthThreeDee);
+		$('#strengthFantasy').text(strengthFantasy);
+		$('#strengthDictionary').text(strengthDictionary);
+		$('#strengthRadio').text(strengthRadio);
+		$('#strengthSound').text(strengthSound);
 	};
 
 	/*
