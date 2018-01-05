@@ -1,31 +1,125 @@
 /* mobile */
 
 body {
+	font-family: "Meiryo", "Hiragino Kaku Gothic ProN", "MS PGothic", sans-serif;
+	font-size: 14px;
 	margin-bottom: 24px;
 }
+
+h1 {
+	font-size: 1.5em;
+	margin-left: 8px;
+}
+
+h3 span {
+	position: absolute;
+	line-height: 24px;
+}
+
 .question {
-	font-size: 14px;
-	margin: 0 0 1.5em 0;
+	margin: 0 0 2em 0;
+}
+
+.question>* {
+	margin-left: 26px;
+}
+
+.question div+div {
+	margin-top: 3px;
+}
+
+.question input[type=radio] {
+	position: absolute;
+	left: 8px;
+}
+
+canvas {
+	margin: 0 0 3em;
 }
 
 input[type=button] {
 	background-color: #bfbfbf;
 	font-size: 1em;
 	height: 50px;
-	width: 100%;
+	width: calc(100% - 8px * 2);
+	border-radius: 4px;
+	margin: 0 8px;
 }
 
 .question div:first-child {
 	font-weight: bold;
+	background-color: rgb(230, 230, 230);
+	background-color: rgba(128, 128, 128, 0.2);
+	margin: 0 0 0.8em;
+	padding: 4px 0 4px 8px;
+}
+
+.resultPoints {
+	margin: 1em 8px 3em;
+	border-collapse: collapse;
+}
+
+.resultPoints td {
+	border-bottom: 1px solid;
+	padding: 6px 2px 1px 0;
+}
+
+.resultPoints td+td {
+	padding-left: 12px;
+	text-align: right;
+}
+
+.resultPoints td span {
+	color: rgb(255, 0, 54);
+}
+
+.resultPoints td span:after {
+	content: 'pt';
+	color: #000;
+	margin-left: 2px;
+}
+
+.warning {
+	/*position: absolute;*/
+	background: rgb(255, 255, 255);
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+}
+
+.warning .container {
+	margin: 0 8px;
+}
+
+.container a {
+	text-decoration: none;
+}
+
+.container input[type=button] {
+	margin: 0;
+	width: 100%;
+}
+
+.warning ul {
+	padding: 0;
+}
+
+.warning li {
+	list-style: none;
+	border-left: 1px solid;
+	padding-left: 4px;
 }
 
 /* tablet */
 
 @media screen and (min-width: 480px) {
-	.question {
+	h1 {
+		font-size: 1.8em;
+	}
+	body {
 		font-size: 18px;
 	}
-	input[type=button] {
+	input[type=button], .container input[type=button] {
 		font-size: 1em;
 		width: 200px;
 	}

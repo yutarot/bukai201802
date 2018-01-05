@@ -61,22 +61,22 @@ $(function() {
 
 		'q15-1': [0, 0, 0, 4, 0, 0],
 		'q15-2': [0, 0, 1, 0, 0, 0],
-		'q15-3': [2, 2, 0, 0, 1, 0],
-		'q15-4': [0, 0, 0, 0, 0, 2],
+		'q15-3': [2, 2, 0, 0, 0, 0],
+		'q15-4': [0, 0, 0, 0, 1, 2],
 
-		'q16-1': [2, 0, 0, 0, 0, 0],
-		'q16-2': [0, 2, 1, 1, 1, 0],
-		'q16-3': [0, 0, 0, 0, 0, 2],
+		'q16-1': [0, 2, 0, 0, 0, 0],
+		'q16-2': [0, 0, 2, 1, 1, 1],
+		'q16-3': [2, 0, 0, 0, 0, 0],
 
 		'q17-1': [0, 0, 2, 0, 0, 0],
 		'q17-2': [2, 1, 0, 0, 0, 0],
 		'q17-3': [0, 0, 0, 4, 0, 0],
 		'q17-4': [0, 0, 0, 0, 2, 0],
-		'q17-5': [0, 0, 0, 0, 0, 1],
+		'q17-5': [0, 0, 0, 0, 0, 2],
 
 		'q18-1': [0, 0, 2, 0, 0, 0],
-		'q18-2': [2, 2, 0, 2, 0, 0],
-		'q18-3': [0, 0, 0, 0, 1, 2],
+		'q18-2': [2, 2, 0, 0, 0, 0],
+		'q18-3': [0, 0, 0, 2, 1, 2],
 
 		'q19-1': [0, 0, 2, 0, 0, 0],
 		'q19-2': [2, 2, 0, 0, 0, 0],
@@ -91,8 +91,8 @@ $(function() {
 		'q21-2': [0, 0, 2, 2, 0, 0],
 		'q21-3': [0, 0, 0, 0, 0, 0],
 
-		'q22-1': [2, 2, 0, 0, 0, 0],
-		'q22-2': [0, 0, 2, 1, 0, 0],
+		'q22-1': [0, 2, 2, 0, 0, 0],
+		'q22-2': [2, 0, 0, 1, 0, 0],
 		'q22-3': [0, 0, 0, 0, 0, 0],
 
 		'q23-1': [0, 0, 0, 4, 2, 0],
@@ -112,7 +112,7 @@ $(function() {
 		'q26-1': [0, 0, 0, 4, 0, 0],
 		'q26-2': [0, 0, 0, 0, 2, 1],
 		'q26-3': [0, 0, 4, 0, 0, 0],
-		'q26-4': [1, 1, 0, 0, 0, 0],
+		'q26-4': [2, 2, 0, 0, 0, 0],
 
 		'q27-1': [0, 0, 2, 0, 1, 0],
 		'q27-2': [0, 0, 0, 1, 0, 1],
@@ -122,8 +122,8 @@ $(function() {
 		'q28-2': [0, 0, 2, 1, 0, 0],
 		'q28-3': [1, 1, 0, 0, 0, 0],
 
-		'q29-1': [0, 0, 2, 0, 1, 0],
-		'q29-2': [0, 0, 0, 2, 0, 1],
+		'q29-1': [0, 0, 2, 0, 1, 1],
+		'q29-2': [0, 0, 0, 2, 0, 0],
 		'q29-3': [1, 1, 0, 0, 0, 0],
 
 		'q30-1': [0, 0, 0, 0, 0, 2],
@@ -138,9 +138,9 @@ $(function() {
 		'q32-1': [0, 0, 0, 0, 2, 4],
 		'q32-2': [0, 0, 0, 0, 0, 0],
 
-		'q33-1': [0, 0, 0, 0, 0, 0],
+		'q33-1': [0, 0, 0, 0, 2, 4],
 		'q33-2': [0, 0, 1, 1, 0, 0],
-		'q33-3': [0, 0, 0, 0, 2, 4],
+		'q33-3': [0, 0, 0, 0, 0, 0],
 
 		'q34-1': [2, 2, 0, 0, 0, 0],
 		'q34-2': [0, 0, 0, 1, 2, 0],
@@ -199,7 +199,7 @@ $(function() {
 				borderColor: colorSet.red,
 				pointBackgroundColor: colorSet.red,
 				data: []
-			}, ]
+			}]
 		},
 		options: {
 			animation: false,
@@ -217,17 +217,17 @@ $(function() {
 				display: true,
 				pointLabels: {
 					fontSize: 10,
-					fontColor: colorSet.yellow
+					fontColor: colorSet.blue
 				},
 				ticks: {
 					display: true,
 					fontSize: 12,
-					fontColor: colorSet.green,
+					fontColor: colorSet.blue,
 					beginAtZero: true
 				},
 				gridLines: {
 					display: true,
-					color: colorSet.yellow
+					color: colorSet.blue
 				}
 			}
 		}
@@ -236,14 +236,21 @@ $(function() {
 	var calcPoints = function() {
 		var ret = [0, 0, 0, 0, 0, 0];
 		$('input:checked').each(function(i, elem) {
-			//console.log(pointValues[$(elem).attr('id')]);
 			$.each(pointValues[$(elem).attr('id')], function(idx, val) {
-				console.log(idx + ':' + val);
 				ret[idx] += val;
 			});
 		});
 		console.log(ret);
 		return ret;
+	};
+
+	var setPoints = function(data) {
+		$('#camera').text(data[0]);
+		$('#threeDee').text(data[1]);
+		$('#fantasy').text(data[2]);
+		$('#dictionary').text(data[3]);
+		$('#radio').text(data[4]);
+		$('#sound').text(data[5]);
 	};
 
 	/*
@@ -254,6 +261,7 @@ $(function() {
 		var $chart = $('#myChart');
 		config.data.datasets[0].data = calcPoints();
 		var myRadar = new Chart($chart, config);
+		setPoints(config.data.datasets[0].data);
 		$('#questions').fadeOut(500);
 		setTimeout(function() {
 			$('#result').fadeIn(500);
@@ -265,6 +273,15 @@ $(function() {
 		setTimeout(function() {
 			$('#questions').fadeIn(500);
 		}, 1000);
+	});
+
+	$('#acceptWarning').on('click', function(e) {
+		$('#warning').css({
+			'display': 'none'
+		});
+		$('#questions').css({
+			'display': 'block'
+		});
 	});
 
 });

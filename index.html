@@ -5,12 +5,42 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>takei.work</title>
+	<!--<link rel="stylesheet" type="text/css" href="reset.css">-->
+	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<link rel="stylesheet" type="text/css" href="base.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-	<h1>認知特性テスト(本田40式)</h1>
-	<article id="questions">
+	<h1>認知特性テスト(全35問)</h1>
+
+	<aside id="warning" class="warning">
+		<div class="container">
+			<h3>
+				<i class="material-icons">&#xe001;</i>
+				<span>注意事項</span>
+			</h3>
+			<ul>
+				<li>
+					<p>テストの結果はこの端末上で処理され、結果をサーバ等に送信することはありません。<br><span>(端末のデータ通信を切っても結果を表示することができます。)</span></p>
+				</li>
+				<li>
+					<p>もちろん査定等に影響することもありません。</p>
+				</li>
+				<li>
+					<p>このサイトコンテンツは部会後、削除する予定です。</p>
+				</li>
+				<li>
+					<p>出典:
+						<a target="_blank" href="https://www.kobunsha.com/shelf/book/isbn/9784334036898">医師のつくった「頭のよさ」テスト 〜認知特性から見た6つのパターン〜[本田真美/著][光文社新書]</a>
+					</p>
+				</li>
+			</ul>
+			<input type="button" id="acceptWarning" value="OK">
+		</div>
+	</aside>
+
+	<article id="questions" style="display: none;">
 
 		<div class="question">
 			<div>1) 初対面の人を覚えるときのポイントは何ですか？</div>
@@ -607,7 +637,7 @@
 				<label for="q35-3">最初に結論を言い、あとから補足的に説明をするが抜けることもある</label>
 			</div>
 		</div>
-<!--
+		<!--
 		<div class="question">
 			<div>36) 友だちが髪型を変えたり、太ったりやせたりしたら？</div>
 			<div>
@@ -692,12 +722,48 @@
 			</div>
 		</div>
 -->
-		<input id="submitButton" type="button" value="submit">
+		<input id="submitButton" type="button" value="結果を表示">
 	</article>
 
 	<article id="result" style="display:none;">
 		<canvas id="myChart"></canvas>
-		<input type="button" id="backButton" value="back">
+		<!--
+		<div class="resultPoints">
+			<div class="point">カメラタイプ: <span id="camera"></span>pt</div>
+			<div class="point">3Dタイプ: <span id="threeDee"></span>pt</div>
+			<div class="point">ファンタジータイプ: <span id="fantasy"></span>pt</div>
+			<div class="point">辞書タイプ: <span id="dictionary"></span>pt</div>
+			<div class="point">ラジオタイプ: <span id="radio"></span>pt</div>
+			<div class="point">サウンドタイプ: <span id="sound"></span>pt</div>
+		</div>
+		-->
+		<table class="resultPoints">
+			<tr>
+				<td>カメラタイプ</td>
+				<td><span id="camera"></span></td>
+			</tr>
+			<tr>
+				<td>3Dタイプ</td>
+				<td><span id="threeDee"></span></td>
+			</tr>
+			<tr>
+				<td>ファンタジータイプ</td>
+				<td><span id="fantasy"></span></td>
+			</tr>
+			<tr>
+				<td>辞書タイプ</td>
+				<td><span id="dictionary"></span></td>
+			</tr>
+			<tr>
+				<td>ラジオタイプ</td>
+				<td><span id="radio"></span></td>
+			</tr>
+			<tr>
+				<td>サウンドタイプ</td>
+				<td><span id="sound"></span></td>
+			</tr>
+		</table>
+		<input type="button" id="backButton" value="戻る">
 	</article>
 
 </body>
