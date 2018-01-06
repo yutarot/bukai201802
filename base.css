@@ -6,14 +6,19 @@ body {
 	margin-bottom: 24px;
 }
 
-h1 {
+.siteTitle {
 	font-size: 1.5em;
 	margin-left: 8px;
 }
 
+.siteTitle a {
+	color: #000;
+	text-decoration: none;
+}
+
 h3 span {
-	position: absolute;
 	line-height: 24px;
+	position: absolute;
 }
 
 .question {
@@ -21,7 +26,7 @@ h3 span {
 }
 
 .question>* {
-	margin-left: 26px;
+	margin: 0 8px 0 26px;
 }
 
 .question div+div {
@@ -29,47 +34,49 @@ h3 span {
 }
 
 .question input[type=radio] {
-	position: absolute;
 	left: 8px;
-}
-
-canvas {
-	margin: 0 0 3em;
+	position: absolute;
 }
 
 input[type=button] {
 	background-color: #bfbfbf;
+	border-radius: 4px;
 	font-size: 1em;
 	height: 50px;
-	width: calc(100% - 8px * 2);
-	border-radius: 4px;
 	margin: 0 8px;
+	width: calc(100% - 8px * 2);
 }
 
-.question div:first-child {
-	font-weight: bold;
+.question_title {
 	background-color: rgb(230, 230, 230);
 	background-color: rgba(128, 128, 128, 0.2);
+	font-size: 100%;
 	margin: 0 0 0.8em;
-	padding: 4px 0 4px 8px;
+	padding: 4px 8px 4px;
 }
 
-.resultPoints {
-	margin: 1em 8px 3em;
+.resultDetail {
+	margin: 1em 0 2em;
+	text-align: center;
+}
+
+.resultDetail_points {
 	border-collapse: collapse;
+	margin: 0 auto;
 }
 
-.resultPoints td {
+.resultDetail_points td {
 	border-bottom: 1px solid;
 	padding: 6px 2px 1px 0;
+	text-align: left;
 }
 
-.resultPoints td+td {
+.resultDetail_points td+td {
 	padding-left: 12px;
 	text-align: right;
 }
 
-.resultPoints td span {
+.resultDetail_points td span {
 	margin-left: 2px;
 }
 
@@ -78,8 +85,15 @@ input[type=button] {
 }
 
 .pt:after {
-	content: 'pt';
 	color: #000;
+	content: 'pt';
+	margin-left: 1px;
+}
+
+.note {
+	color: grey;
+	font-size: 75%;
+	margin: 1em 0 0;
 }
 
 .warning {
@@ -108,15 +122,15 @@ input[type=button] {
 }
 
 .warning li {
-	list-style: none;
 	border-left: 1px solid;
+	list-style: none;
 	padding-left: 4px;
 }
 
 /* tablet */
 
 @media screen and (min-width: 480px) {
-	h1 {
+	.siteTitle {
 		font-size: 1.8em;
 	}
 	body {

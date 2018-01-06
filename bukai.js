@@ -1,4 +1,8 @@
 $(function() {
+	"use strict";
+
+	var $window = $(window);
+	var $htmlBody = $('html, body');
 	var resultPoints = [0, 0, 0, 0, 0, 0];
 	var pointValues = {
 		'q1-1': [2, 2, 1, 0, 0, 0],
@@ -211,7 +215,7 @@ $(function() {
 				display: true,
 				fontSize: 14,
 				fontColor: '#666',
-				text: 'あなたの認知特性'
+				text: '認知特性の分布'
 			},
 			scale: {
 				display: true,
@@ -268,19 +272,47 @@ $(function() {
 		$('#strengthSound').text(strengthSound);
 	};
 
+	var checkInvalidInput = function() {
+		var ret;
+		$('.question').each(function(i) {
+			var checkedElement = $(this).find('input:checked');
+			if (checkedElement.length === 0) {
+				ret = this;
+				return false;
+			}
+		});
+		return ret;
+	}
+
 	/*
 	 * チャートの作成
 	 */
 	$('#submitButton').on('click', function(e) {
-		var $checkedElements = $('#questions').find(':checked');
-		var $chart = $('#myChart');
-		config.data.datasets[0].data = calcPoints();
-		var myRadar = new Chart($chart, config);
-		setPoints(config.data.datasets[0].data);
-		$('#questions').fadeOut(500);
-		setTimeout(function() {
-			$('#result').fadeIn(500);
-		}, 1000);
+		var invalidElement = checkInvalidInput();
+		console.log(invalidElement);
+		if (invalidElement) {
+			var $invalidElement = $(invalidElement);
+			var invalidPosition = $invalidElement.offset().top;
+			var scrollNeeded = invalidPosition < $window.scrollTop();
+			var blinkWaitTime = scrollNeeded ? 2100 : 0;
+			if (scrollNeeded) {
+				$htmlBody.animate({
+					scrollTop: invalidPosition - 10
+				}, 2000);
+			}
+			setTimeout(function() {
+				$invalidElement.find('.question_title').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+			}, blinkWaitTime);
+		} else {
+			var $chart = $('#myChart');
+			config.data.datasets[0].data = calcPoints();
+			var myRadar = new Chart($chart, config);
+			setPoints(config.data.datasets[0].data);
+			$('#questions').fadeOut(500);
+			setTimeout(function() {
+				$('#result').fadeIn(500);
+			}, 1000);
+		}
 	});
 
 	$('#backButton').on('click', function(e) {
