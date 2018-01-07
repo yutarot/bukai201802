@@ -22,7 +22,11 @@ h3 span {
 }
 
 .question {
-	margin: 0 0 2em 0;
+	margin: 0;
+}
+
+.question+.question {
+	margin-top: 2em;
 }
 
 .question>* {
@@ -43,7 +47,7 @@ input[type=button] {
 	border-radius: 4px;
 	font-size: 1em;
 	height: 50px;
-	margin: 0 8px;
+	margin: 2em 8px 0;
 	width: calc(100% - 8px * 2);
 }
 
@@ -56,7 +60,7 @@ input[type=button] {
 }
 
 .resultDetail {
-	margin: 1em 0 2em;
+	margin: 1em 0;
 	text-align: center;
 }
 
@@ -113,7 +117,8 @@ input[type=button] {
 }
 
 .container input[type=button] {
-	margin: 0;
+	margin-left: 0;
+	margin-right: 0;
 	width: 100%;
 }
 

@@ -214,8 +214,7 @@ $(function() {
 			title: {
 				display: true,
 				fontSize: 14,
-				fontColor: '#666',
-				text: '認知特性の分布'
+				fontColor: '#666'
 			},
 			scale: {
 				display: true,
