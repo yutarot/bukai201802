@@ -1,3 +1,6 @@
+const $ = require('jquery');
+const Chart = require('chart.js');
+
 (function() {
   "use strict";
 
@@ -295,7 +298,7 @@
       }
     });
     return ret;
-  }
+  };
 
   /*
   	Check the answers and show the result
