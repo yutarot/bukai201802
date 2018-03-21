@@ -1,9 +1,10 @@
-$(function() {
+(function() {
 	"use strict";
 
 	var $window = $(window);
-	var $htmlBody = $('html, body');
-	var resultPoints = [0, 0, 0, 0, 0, 0];
+	var $html = $('html');
+	var $questions = $('#questions');
+	var $result = $('#result');
 	var pointValues = {
 		'q1-1': [2, 2, 1, 0, 0, 0],
 		'q1-2': [0, 0, 0, 2, 0, 0],
@@ -175,8 +176,6 @@ $(function() {
 		'q40-2': [0, 0, 4, 2, 4, 0],
 		'q40-3': [0, 0, 0, 0, 0, 4]
 	};
-
-	// 色の設定
 	var colorSet = {
 		red: 'rgb(255, 99, 132)',
 		orange: 'rgb(255, 159, 64)',
@@ -187,12 +186,10 @@ $(function() {
 		grey: 'rgb(201, 203, 207)'
 	};
 
-	// 色のRGB変換
+	// RGB conversion
 	var color = Chart.helpers.color;
 
-	/*
-	 * チャートの初期設定
-	 */
+	// Chart default configurations
 	var config = {
 		type: 'radar',
 		data: {
@@ -236,6 +233,10 @@ $(function() {
 		}
 	};
 
+	/**
+	 * Calculate points based on the user's answers
+	 * @return {array} array which contains each result of points
+	 */
 	var calcPoints = function() {
 		var ret = [0, 0, 0, 0, 0, 0];
 		$('input:checked').each(function(i, elem) {
@@ -243,10 +244,13 @@ $(function() {
 				ret[idx] += val;
 			});
 		});
-		console.log(ret);
 		return ret;
 	};
 
+	/**
+	 * Set points to the result table and show it.
+	 * @param  {array} data array contains each points
+	 */
 	var setPoints = function(data) {
 		var strengthCamera, strengthThreeDee, strengthFantasy, strengthDictionary, strengthRadio, strengthSound;
 		$('#camera').text(data[0]);
@@ -271,12 +275,17 @@ $(function() {
 		$('#strengthSound').text(strengthSound);
 	};
 
+	/**
+	 * Check and return the invalid element.
+	 * @return {[type]} HTML element of not answered question
+	 */
 	var checkInvalidInput = function() {
 		var ret;
 		$('.question').each(function(i) {
 			var checkedElement = $(this).find('input:checked');
 			if (checkedElement.length === 0) {
 				ret = this;
+				// stop the loop
 				return false;
 			}
 		});
@@ -284,50 +293,52 @@ $(function() {
 	}
 
 	/*
-	 * チャートの作成
+		Check the answers and show the result
 	 */
 	$('#submitButton').on('click', function(e) {
 		var invalidElement = checkInvalidInput();
-		console.log(invalidElement);
 		if (invalidElement) {
+			/*
+				scroll and blink the invalid question
+			 */
 			var $invalidElement = $(invalidElement);
 			var invalidPosition = $invalidElement.offset().top;
 			var scrollNeeded = invalidPosition < $window.scrollTop();
-			var blinkWaitTime = scrollNeeded ? 2100 : 0;
+			var blinkTitle = function() {
+				// blink the title 3 times
+				$invalidElement.find('.question_title')
+					.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+			};
 			if (scrollNeeded) {
-				$htmlBody.animate({
+				$html.animate({
 					scrollTop: invalidPosition - 10
-				}, 2000);
+				}, 2000, blinkTitle);
+			} else {
+				blinkTitle();
 			}
-			setTimeout(function() {
-				$invalidElement.find('.question_title').fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
-			}, blinkWaitTime);
 		} else {
+			/*
+				show the result chart radar
+			 */
 			var $chart = $('#myChart');
 			config.data.datasets[0].data = calcPoints();
 			var myRadar = new Chart($chart, config);
 			setPoints(config.data.datasets[0].data);
-			$('#questions').fadeOut(500);
-			setTimeout(function() {
-				$('#result').fadeIn(500);
-			}, 1000);
+			$questions.fadeOut(500, function() {
+				$result.fadeIn(500);
+			});
 		}
 	});
 
 	$('#backButton').on('click', function(e) {
-		$('#result').fadeOut(500);
-		setTimeout(function() {
-			$('#questions').fadeIn(500);
-		}, 1000);
+		$result.fadeOut(500, function() {
+			$questions.fadeIn(500);
+		});
 	});
 
 	$('#acceptWarning').on('click', function(e) {
-		$('#warning').css({
-			'display': 'none'
-		});
-		$('#questions').css({
-			'display': 'block'
-		});
+		$('#warning').hide();
+		$questions.show();
 	});
 
-});
+}());
