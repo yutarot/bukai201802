@@ -4,7 +4,12 @@
   var $window = $(window);
   var $html = $('html');
   var $questions = $('#questions');
+  var $warning = $('#warning');
   var $result = $('#result');
+  /*
+  	points for each types.
+  	[カメラタイプ, 3Dタイプ, ファンタジータイプ, 辞書タイプ, ラジオタイプ, サウンドタイプ]
+   */
   var pointValues = {
     'q1-1': [2, 2, 1, 0, 0, 0],
     'q1-2': [0, 0, 0, 2, 0, 0],
@@ -337,7 +342,7 @@
   });
 
   $('#acceptWarning').on('click', function(e) {
-    $('#warning').hide();
+    $warning.hide();
     $questions.show();
   });
 
