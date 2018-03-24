@@ -72,15 +72,11 @@ const Constants = require('./constants');
     return ret;
   };
 
-  /*
-    Check the answers and show the result
-  */
+  // Check the answers and show the result
   $('#submitButton').on('click', function(e) {
     var invalidElement = checkInvalidInput();
     if (invalidElement) {
-      /*
-      	scroll and blink the invalid question
-       */
+      // scroll and blink the invalid question
       var $invalidElement = $(invalidElement);
       var invalidPosition = $invalidElement.offset().top;
       var scrollNeeded = invalidPosition < $window.scrollTop();
@@ -97,9 +93,7 @@ const Constants = require('./constants');
         blinkTitle();
       }
     } else {
-      /*
-      	show the result chart radar
-       */
+      // show the result chart radar
       var $chart = $('#myChart');
       chartConfig.data.datasets[0].data = calcPoints();
       var myRadar = new Chart($chart, chartConfig);
