@@ -1,9 +1,9 @@
 {
-  "name": "bukai201802",
+  "name": "personal-cognitive-property-test",
   "version": "1.0.0",
-  "description": "web application for cognitive property test",
+  "description": "Web application for personal cognitive property test",
   "main": "src/js/app.js",
-  "repository": "git@github.com:yutarot/bukai201802.git",
+  "repository": "git@github.com:yutarot/personal-cognitive-property-test.git",
   "author": "yutarot <takenoco88@gmail.com>",
   "license": "MIT",
   "scripts": {
