@@ -57,7 +57,7 @@ const Constants = require('./constants');
 
   /**
    * Check and return the invalid element.
-   * @return {[type]} HTML element of not answered question
+   * @return {object} HTML element of not answered question
    */
   var checkInvalidInput = function() {
     var ret;
@@ -73,8 +73,8 @@ const Constants = require('./constants');
   };
 
   /*
-  	Check the answers and show the result
-   */
+    Check the answers and show the result
+  */
   $('#submitButton').on('click', function(e) {
     var invalidElement = checkInvalidInput();
     if (invalidElement) {
