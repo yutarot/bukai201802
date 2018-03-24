@@ -6,8 +6,8 @@ Reference
 
 License
 --
-[MIT License](https://github.com/yutarot/bukai201802/blob/master/LICENSE)
+[MIT License](https://github.com/yutarot/personal-cognitive-property-test/blob/master/LICENSE)
 
 ---
 
-Being published at [Github Pages](https://yutarot.github.io/bukai201802/)
+Being published at [Github Pages](https://yutarot.github.io/personal-cognitive-property-test/)
