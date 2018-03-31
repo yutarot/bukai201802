@@ -1,3 +1,4 @@
+import './file';
 import $ from 'jquery';
 import Chart from 'chart.js';
 import constants from './constants';
