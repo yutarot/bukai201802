@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
-/**
- * Calculate points based on the user's answers
- * @return {array} array which contains each result of points
- */
 export default {
+    /**
+     * Calculate points based on the user's answers
+     * @return {array} array which contains each result of points
+     */
     calcPoints: function () {
         var ret = [0, 0, 0, 0, 0, 0];
         $('input:checked').each(function (i, elem) {
