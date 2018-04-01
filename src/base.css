@@ -1,3 +1,5 @@
+/* mobile */
+
 body {
   background: #fefefe;
   font-family: "Meiryo", "Hiragino Kaku Gothic ProN", "MS PGothic", sans-serif;
@@ -138,6 +140,8 @@ input[type=button] {
   padding-left: 4px;
 }
 
+/* tablet */
+
 @media screen and (min-width: 480px) {
   .siteTitle {
     font-size: 1.8em;
@@ -150,5 +154,7 @@ input[type=button] {
     width: 200px;
   }
 }
+
+/* pc */
 
 @media screen and (min-width: 768px) {}
