@@ -12,7 +12,6 @@ import util from './util';
   var $questions = $('#questions');
   var $warning = $('#warning');
   var $result = $('#result');
-  var pointValues = constants.pointValues;
   var chartConfig = constants.chartConfig;
 
   // submit button on the test view

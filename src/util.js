@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import constants from './constants';
 
 export default {
     /**
@@ -8,7 +9,7 @@ export default {
     calcPoints: function () {
         var ret = [0, 0, 0, 0, 0, 0];
         $('input:checked').each(function (i, elem) {
-            $.each(pointValues[$(elem).attr('id')], function (idx, val) {
+            $.each(constants.pointValues[$(elem).attr('id')], function (idx, val) {
                 ret[idx] += val;
             });
         });
@@ -28,12 +29,12 @@ export default {
         $('#radio').text(data[4]);
         $('#sound').text(data[5]);
 
-        strengthCamera = data[0] > 25 ? Constants.excellent : data[0] > 14 ? Constants.good : Constants.poor;
-        strengthThreeDee = data[1] > 25 ? Constants.excellent : data[1] > 14 ? Constants.good : Constants.poor;
-        strengthFantasy = data[2] > 25 ? Constants.excellent : data[2] > 14 ? Constants.good : Constants.poor;
-        strengthDictionary = data[3] > 25 ? Constants.excellent : data[3] > 14 ? Constants.good : Constants.poor;
-        strengthRadio = data[4] > 25 ? Constants.excellent : data[4] > 14 ? Constants.good : Constants.poor;
-        strengthSound = data[5] > 25 ? Constants.excellent : data[5] > 14 ? Constants.good : Constants.poor;
+        strengthCamera = data[0] > 25 ? constants.excellent : data[0] > 14 ? constants.good : constants.poor;
+        strengthThreeDee = data[1] > 25 ? constants.excellent : data[1] > 14 ? constants.good : constants.poor;
+        strengthFantasy = data[2] > 25 ? constants.excellent : data[2] > 14 ? constants.good : constants.poor;
+        strengthDictionary = data[3] > 25 ? constants.excellent : data[3] > 14 ? constants.good : constants.poor;
+        strengthRadio = data[4] > 25 ? constants.excellent : data[4] > 14 ? constants.good : constants.poor;
+        strengthSound = data[5] > 25 ? constants.excellent : data[5] > 14 ? constants.good : constants.poor;
 
         $('#strengthCamera').text(strengthCamera);
         $('#strengthThreeDee').text(strengthThreeDee);
