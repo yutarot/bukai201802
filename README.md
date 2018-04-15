@@ -10,4 +10,4 @@ License
 
 ---
 
-Being published at [GitHub Pages](https://yutarot.github.io/personal-cognitive-property-test/)
+Being published at [GitHub Pages](https://yutarot.github.io/personal-cognitive-property-test/index.html)
