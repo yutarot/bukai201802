@@ -1,5 +1,7 @@
 @import "normalize.scss/normalize.scss";
 
+$sideMargin: 8px;
+
 /* mobile */
 
 body {
@@ -11,47 +13,68 @@ body {
 
 .siteTitle {
   font-size: 1.5em;
-  margin-left: 8px;
+  margin-left: $sideMargin;
+  a {
+    color: #000;
+    text-decoration: none;
+  }
 }
 
-.siteTitle a {
-  color: #000;
-  text-decoration: none;
-}
-
-.warning_title span {
-  line-height: 24px;
-  position: absolute;
-  margin-left: 2px;
+.warning {
+  background: #fefefe;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  &_title {
+    span {
+      line-height: 24px;
+      position: absolute;
+      margin-left: 2px;
+    }
+  }
+  .container {
+    margin: 0 $sideMargin;
+  }
+  ul {
+    padding: 0;
+    li {
+      border-left: 1px solid;
+      list-style: none;
+      padding-left: 4px;
+    }
+  }
 }
 
 .question {
   margin: 0;
-}
-
-.question+.question {
-  margin-top: 2em;
-}
-
-.question>* {
-  margin: 0 8px 0 26px;
-}
-
-.choiceContainer {
-  display: table;
-}
-
-.choiceContainer label {
-  display: table-cell;
-}
-
-.question .choiceContainer+.choiceContainer {
-  margin-top: 4px;
-}
-
-.question input[type=radio] {
-  left: 8px;
-  position: absolute;
+  +.question {
+    margin-top: 2em;
+  }
+  &_title {
+    background-color: #ccc;
+    font-size: 100%;
+    margin: 0 0 .8em;
+    padding: 4px $sideMargin 4px;
+  }
+  .choiceContainer {
+    display: table;
+    line-height: 1em;
+    margin: 0 $sideMargin 0 26px;
+    +.choiceContainer {
+      margin-top: .5em;
+    }
+    label {
+      display: table-cell;
+    }
+  }
+  input[type=radio] {
+    left: $sideMargin;
+    position: absolute;
+    height: 1em;
+    &:focus{
+      outline:none;
+    }
+  }
 }
 
 input[type=button] {
@@ -59,50 +82,38 @@ input[type=button] {
   border-radius: 4px;
   font-size: 1em;
   height: 50px;
-  margin: 2em 8px 0;
-  width: calc(100% - 8px * 2);
-}
-
-.question_title {
-  background-color: #ccc;
-  font-size: 100%;
-  margin: 0 0 0.8em;
-  padding: 4px 8px 4px;
+  margin: 2em $sideMargin 0;
+  width: calc(100% - #{$sideMargin} * 2);
 }
 
 .resultDetail {
   margin: 1em 0;
   text-align: center;
-}
-
-.resultDetail_points {
-  border-collapse: collapse;
-  margin: 0 auto;
-}
-
-.resultDetail_points td {
-  border-bottom: 1px solid;
-  padding: 6px 2px 1px 0;
-  text-align: left;
-}
-
-.resultDetail_points td+td {
-  padding-left: 12px;
-  text-align: right;
-}
-
-.resultDetail_points td span {
-  margin-left: 2px;
+  &_points {
+    border-collapse: collapse;
+    margin: 0 auto;
+    td {
+      border-bottom: 1px solid;
+      padding: 6px 2px 1px 0;
+      text-align: left;
+      +td {
+        padding-left: 12px;
+        text-align: right;
+      }
+      span {
+        margin-left: 2px;
+      }
+    }
+  }
 }
 
 .pt {
   color: rgb(255, 0, 54);
-}
-
-.pt:after {
-  color: #000;
-  content: 'pt';
-  margin-left: 1px;
+  &:after {
+    color: #000;
+    content: 'pt';
+    margin-left: 1px;
+  }
 }
 
 .note {
@@ -111,45 +122,25 @@ input[type=button] {
   margin: 1em 0 0;
 }
 
-.warning {
-  background: #fefefe;
-  height: 100%;
-  width: 100%;
-  z-index: 100;
-}
-
-.warning .container {
-  margin: 0 8px;
-}
-
-.container a {
-  text-decoration: none;
-}
-
-.container input[type=button] {
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
-}
-
-.warning ul {
-  padding: 0;
-}
-
-.warning li {
-  border-left: 1px solid;
-  list-style: none;
-  padding-left: 4px;
+.container {
+  a {
+    text-decoration: none;
+  }
+  input[type=button] {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
 }
 
 /* tablet */
 
 @media screen and (min-width: 480px) {
-  .siteTitle {
-    font-size: 1.8em;
-  }
   body {
     font-size: 16px;
+  }
+  .siteTitle {
+    font-size: 1.8em;
   }
   input[type=button], .container input[type=button] {
     font-size: 1em;
