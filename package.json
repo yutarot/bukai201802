@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js",
-    "start": "webpack --watch -d & browser-sync start --config ./bs-config.js"
+    "start": "webpack --config webpack.dev.js --watch -d & browser-sync start --config ./bs-config.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
