@@ -8,18 +8,6 @@ module.exports = merge(common, {
         new UglifyJSPlugin()
     ],
     module: {
-        rules: [{
-            test: /\.css$/,
-            use: [
-                'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        url: false,
-                        minimize: true,
-                    },
-                },
-            ],
-        }]
+        rules: []
     }
 });
