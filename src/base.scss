@@ -1,0 +1,153 @@
+@import "normalize.scss/normalize.scss";
+
+$sideMargin: 8px;
+
+/* mobile */
+
+body {
+  background: #fefefe;
+  font-family: "Meiryo", "Hiragino Kaku Gothic ProN", "MS PGothic", sans-serif;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.siteTitle {
+  font-size: 1.5em;
+  margin-left: $sideMargin;
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+.warning {
+  background: #fefefe;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  &_title {
+    span {
+      line-height: 24px;
+      position: absolute;
+      margin-left: 2px;
+    }
+  }
+  .container {
+    margin: 0 $sideMargin;
+  }
+  ul {
+    padding: 0;
+    li {
+      border-left: 1px solid;
+      list-style: none;
+      padding-left: 4px;
+    }
+  }
+}
+
+.question {
+  margin: 0;
+  +.question {
+    margin-top: 2em;
+  }
+  &_title {
+    background-color: #ccc;
+    font-size: 100%;
+    margin: 0 0 .8em;
+    padding: 4px $sideMargin 4px;
+  }
+  .choiceContainer {
+    display: table;
+    line-height: 1em;
+    margin: 0 $sideMargin 0 26px;
+    +.choiceContainer {
+      margin-top: .5em;
+    }
+    label {
+      display: table-cell;
+    }
+  }
+  input[type=radio] {
+    left: $sideMargin;
+    position: absolute;
+    height: 1em;
+    &:focus{
+      outline:none;
+    }
+  }
+}
+
+input[type=button] {
+  background-color: #bfbfbf;
+  border-radius: 4px;
+  font-size: 1em;
+  height: 50px;
+  margin: 2em $sideMargin 0;
+  width: calc(100% - #{$sideMargin} * 2);
+}
+
+.resultDetail {
+  margin: 1em 0;
+  text-align: center;
+  &_points {
+    border-collapse: collapse;
+    margin: 0 auto;
+    td {
+      border-bottom: 1px solid;
+      padding: 6px 2px 1px 0;
+      text-align: left;
+      +td {
+        padding-left: 12px;
+        text-align: right;
+      }
+      span {
+        margin-left: 2px;
+      }
+    }
+  }
+}
+
+.pt {
+  color: rgb(255, 0, 54);
+  &:after {
+    color: #000;
+    content: 'pt';
+    margin-left: 1px;
+  }
+}
+
+.note {
+  color: grey;
+  font-size: 75%;
+  margin: 1em 0 0;
+}
+
+.container {
+  a {
+    text-decoration: none;
+  }
+  input[type=button] {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+/* tablet */
+
+@media screen and (min-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+  .siteTitle {
+    font-size: 1.8em;
+  }
+  input[type=button], .container input[type=button] {
+    font-size: 1em;
+    width: 200px;
+  }
+}
+
+/* pc */
+
+@media screen and (min-width: 768px) {}

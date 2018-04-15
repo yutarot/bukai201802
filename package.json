@@ -1,0 +1,39 @@
+{
+  "name": "personal-cognitive-property-test",
+  "version": "1.0.0",
+  "description": "Web application for personal cognitive property test",
+  "main": "src/index.js",
+  "repository": "git@github.com:yutarot/personal-cognitive-property-test.git",
+  "author": "yutarot <takenoco88@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack --config webpack.dev.js",
+    "start": "webpack --config webpack.dev.js -wd & browser-sync start --config ./bs-config.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.23.6",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.1.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.12",
+    "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "chart.js": "^2.7.2",
+    "jquery": "^3.3.1",
+    "normalize.scss": "^0.1.0"
+  }
+}
