@@ -42,18 +42,19 @@ module.exports = {
       }
     },
     {
-      test: /\.css$/,
+      test: /\.(css|sass|scss)$/,
       use: ExtractTextPlugin.extract({
         fallback: "style-loader",
-        use: {
+        use: [{
           loader: "css-loader",
           options: {
             url: false,
             minimize: true
           }
-        }
+        },
+          'sass-loader'
+        ]
       })
-    }
-    ]
+    }]
   }
 };
